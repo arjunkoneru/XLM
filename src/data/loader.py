@@ -317,7 +317,7 @@ def check_data_params(params):
     assert all([all([os.path.isfile(p) for p in paths.values()]) for paths in params.mono_dataset.values()])
 
     # check parallel datasets
-    required_para_train = set(params.clm_steps + params.mlm_steps + params.pc_steps + params.mt_steps + [('en','ne')]) | set([(l1, l3) for l1,_,l3 in params.pt_steps])  
+    required_para_train = set(params.clm_steps + params.mlm_steps + params.pc_steps + params.mt_steps) | set([(l1, l3) for l1,_,l3 in params.pt_steps])  
     required_para = required_para_train
     #required_para = required_para_train | set([(l2, l3) for _, l2, l3 in params.bt_steps])
     params.para_dataset = {
